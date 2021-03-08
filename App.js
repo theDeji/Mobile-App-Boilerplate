@@ -25,19 +25,15 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <DrawerNav />
-      {/* <Stack.Navigator headerMode="none">
+      {/* <DrawerNav /> */}
+      <Stack.Navigator headerMode="none">
         <Stack.Screen
           name="Onboard"
           component={OnboardingScreen}
         />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="Login" component={HomeScreen} />
+        <Stack.Screen name="Login" component={DrawerNav} />
       </Stack.Navigator>
-      <Tab.Navigator initialRouteName="Home">
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator> */}
     </NavigationContainer>
   );
 }

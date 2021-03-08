@@ -9,7 +9,11 @@ import { Ionicons } from '@expo/vector-icons';
 import colors from '../../config/colors'
 import MainStackNav from "./MainStackNav";
 import ProfileScreen from "../../screens/ProfileScreen";
-import { color } from "react-native-reanimated";
+import TrendScreen from '../../screens/TrendScreen'
+import HomeScreen from '../../screens/HomeScreen'
+import PitchScreen from '../../screens/PitchScreen'
+import SettingsScreen from '../../screens/SettingsScreen'
+import SupportScreen from '../../screens/SupportScreen'
 
 const Tab = createBottomTabNavigator(
 );
@@ -17,6 +21,8 @@ const Tab = createBottomTabNavigator(
 const BottomTabs = () => {
   return (
     <Tab.Navigator
+        initialRouteName="Home"
+        backBehavior='none'
         tabBarOptions={{
             showLabel:false,
             activeBackgroundColor:colors.pink,
@@ -41,13 +47,13 @@ const BottomTabs = () => {
           tabBarIcon: ({focused}) => (
             <AntDesign name="dashboard" size={25} color={focused ? colors.white : colors.medium}/>),
         }} />
-        <Tab.Screen name="Trends" component={ProfileScreen} options={{
+        <Tab.Screen name="Trends" component={TrendScreen} options={{
           tabBarLabel: 'Trends',
           tabBarIcon: ({focused}) => (
               <Ionicons name="trending-up" size={28} color={focused ? colors.white : colors.medium}  />),
         }} />
-        <Tab.Screen name="Profile" component={ProfileScreen} options={{
-            tabBarLabel: 'Profile',
+        <Tab.Screen name="Pitch" component={PitchScreen} options={{
+            tabBarLabel: 'Pitch',
             tabBarIcon: ({focused}) => (
                 <AntDesign name="bulb1" color={focused ? colors.white : colors.medium}  size={25}  />),
         }} />

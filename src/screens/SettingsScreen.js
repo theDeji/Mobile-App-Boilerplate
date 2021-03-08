@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-function ProfileScreen(props) {
+function SettingsScreen(props) {
     return (
         <View style={styles.container}>
             {/* a circular imgage, below it is the name and below the name is an occupation or subtitle.
@@ -17,7 +17,7 @@ function ProfileScreen(props) {
             <View style={styles.logout}>
 
             </View>
-            <Text>Profile screeen</Text>
+            <Text>Settings screeen</Text>
         </View>
     );
 }
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
     container:{}
 })
 
-export default ProfileScreen;
+export default SettingsScreen;

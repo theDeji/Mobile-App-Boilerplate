@@ -12,7 +12,7 @@ const validationSchema = Yup.object().shape({
 });
 
 
-function LoginScreen(props) {
+function LoginScreen({navigation}) {
 
     return (
             <ImageBackground
@@ -45,7 +45,7 @@ function LoginScreen(props) {
                         secureTextEntry
                         textContentType="password"
                     />                        
-                    <SubmitButton title="Login" />
+                    <SubmitButton title="Login" navigation={navigation} />
                 </AppForm>
             </ImageBackground>
     );

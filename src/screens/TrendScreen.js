@@ -1,28 +1,34 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 import Screen from '../components/utils/Screen';
 import colors from '../config/colors'
-import DashBoardCards from '../components/utils/DashBoardCards';
-import SwipeActions from '../components/utils/SwipeActions';
-import ProfileCard from '../components/utils/ProfileCard'
 
-function HomeScreen({navigation}) {
+function TrendScreen(props) {
     return (
         <Screen style={styles.container}>
+            {/* a circular imgage, below it is the name and below the name is an occupation or subtitle.
+            then below that view,  four boxes that stretch out
+            and below that, a log out button
+            */}
             <View style={styles.menuContainer}>
                 <View style={styles.screenInfo}>
                     <MaterialCommunityIcons name='menu' size={24} color={colors.white} style={styles.icon} onPress={() => navigation.toggleDrawer()}/>
-                    <Text style={styles.title}>Dashboard</Text>
+                    <Text style={styles.title}>Trends</Text>
                 </View>
             </View> 
-            <ScrollView>
-                <ProfileCard />
-                <DashBoardCards />
-                <SwipeActions /> 
-            </ScrollView> 
+            <View style={styles.profileBio}>
+
+            </View>
+            <View styles={styles.profileOptions}>
+
+            </View>
+            <View style={styles.logout}>
+
+            </View>
+            <Text>Pitch screeen</Text>
         </Screen>
     );
 }
@@ -34,9 +40,6 @@ const styles = StyleSheet.create({
     icon:{
         marginLeft: 14,
         marginTop: 15.5
-    },
-    list:{
-        backgroundColor:colors.danger
     },
     menuContainer:{
         backgroundColor: colors.secondary,
@@ -51,8 +54,7 @@ const styles = StyleSheet.create({
         left:73
     },
     screenInfo:{
-        // marginTop:25.5
+        // marginTop:25.5/
     }
 })
-
-export default HomeScreen;
+export default TrendScreen;
