@@ -1,0 +1,8 @@
+login/sign up
+dashboard showing - your profile summaray(profile card), your top 4 best projects, available jobs (the swipe components), your past applications, 
+screens:
+profile screen -> edit profile screen, it'll be a modal <- back to home
+home screen -> project screen, -> jobs screen -> profile screen -> notification screen
+settings screen
+project screen(where you'll select your top 4 to show on your profile)
+
