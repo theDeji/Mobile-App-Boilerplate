@@ -8,11 +8,7 @@ import {
   Modal,
   Pressable,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 import Button from "../components/utils/Buttons/Button";
@@ -29,7 +25,7 @@ function ProfileScreen(props) {
           <AntDesign
             name="pluscircle"
             size={24}
-            color={colors.medium}
+            color={colors.lightGray}
             style={{ marginTop: 50 }}
           />
         </View>
@@ -90,6 +86,9 @@ const styles = StyleSheet.create({
   bio: {
     marginLeft: 15,
   },
+  container: {
+    backgroundColor: colors.bg,
+  },
   modalContainer: {
     marginTop: 140,
     elevation: 10,
@@ -98,8 +97,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   image: {
     width: 100,
@@ -120,13 +117,13 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: colors.medium,
+    color: colors.lightGray,
     marginBottom: 15,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: colors.dark,
+    color: colors.white,
   },
 });
 

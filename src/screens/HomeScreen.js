@@ -27,8 +27,8 @@ function HomeScreen({ navigation }) {
             marginBottom: 15,
           }}
         >
-          <MaterialIcons name="dashboard" size={20} color={colors.medium} />
-          <Text style={styles.text}>Projects</Text>
+          <MaterialIcons name="dashboard" size={20} color={colors.lightGray} />
+          <Text style={styles.text}>Dashboard Summary</Text>
         </View>
         <DashBoardCards />
         <View
@@ -40,7 +40,7 @@ function HomeScreen({ navigation }) {
             marginBottom: 15,
           }}
         >
-          <MaterialIcons name="work" size={20} color={colors.medium} />
+          <MaterialIcons name="work" size={20} color={colors.lightGray} />
           <Text style={styles.text}>Available Jobs</Text>
         </View>
         <SwipeActions />
@@ -52,12 +52,13 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     marginTop: 0,
+    backgroundColor: colors.bg,
   },
   text: {
     fontSize: 20,
     marginLeft: 10,
     fontWeight: "bold",
-    color: colors.medium,
+    color: colors.lightGray,
   },
   icon: {
     marginLeft: 14,

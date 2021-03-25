@@ -11,7 +11,7 @@ function KeyValueDetailsBox({ title, value, iconName }) {
         <Entypo
           name={iconName}
           size={18}
-          color={colors.white}
+          color={colors.lightGray}
           style={{ marginRight: 10 }}
         />
         <Text style={styles.title}>{title}</Text>
@@ -23,13 +23,15 @@ function KeyValueDetailsBox({ title, value, iconName }) {
 
 const styles = StyleSheet.create({
   container: {
+    borderWidth: 1,
+    borderColor: colors.lightGray,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 15,
-    margin: 10,
-    backgroundColor: colors.secondary,
-    borderRadius: 10,
+    margin: 5,
+    backgroundColor: colors.list,
+    borderRadius: 5,
   },
   iconAndtitle: {
     flexDirection: "row",
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
   },
   val: {
-    color: colors.medium,
+    color: colors.lightGray,
   },
 });
 

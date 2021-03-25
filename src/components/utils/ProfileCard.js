@@ -22,7 +22,7 @@ function ProfileCard({ props, navigation }) {
               <MaterialCommunityIcons
                 name="head-lightbulb-outline"
                 size={15}
-                color={colors.medium}
+                color={colors.lightGray}
                 style={{ marginRight: 5 }}
               />
               <Text style={styles.bio}>Software Engineer</Text>
@@ -32,7 +32,7 @@ function ProfileCard({ props, navigation }) {
         <MaterialCommunityIcons
           name="arrow-right"
           size={20}
-          color={colors.other}
+          color={colors.extralightGray}
           style={{ marginRight: 5 }}
           onPress={() => navigation.navigate("Profile")}
         />
@@ -44,7 +44,7 @@ function ProfileCard({ props, navigation }) {
 const styles = StyleSheet.create({
   bio: {
     fontSize: 13,
-    color: colors.medium,
+    color: colors.lightGray,
   },
   container: {},
   image: {
@@ -60,19 +60,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   text: {
-    color: colors.medium,
+    color: colors.extralightGray,
     fontWeight: "bold",
     fontSize: 22,
   },
   view: {
-    backgroundColor: colors.pink,
+    backgroundColor: colors.list,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
     borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 20,
     margin: 15,
-    elevation: 5,
   },
 });
 

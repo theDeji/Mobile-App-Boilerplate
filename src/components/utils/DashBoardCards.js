@@ -4,92 +4,140 @@ import {
   StyleSheet,
   ImageBackground,
   TouchableOpacity,
+  Text,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 import colors from "../../config/colors";
 
-function DashBoardCards({ colNo, top, bottom }) {
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+function ButtonOne({ title, iconName, onPress }) {
+  return (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      {iconName && (
+        <MaterialCommunityIcons
+          name={iconName}
+          size={24}
+          color={colors.lightGray}
+        />
+      )}
+      <Text style={styles.action}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
+
+function ButtonTwo({ title, iconName, onPress }) {
+  return (
+    <TouchableOpacity style={styles.buttonSmall} onPress={onPress}>
+      {iconName && (
+        <MaterialCommunityIcons
+          name={iconName}
+          size={18}
+          color={colors.lightGray}
+        />
+      )}
+      <Text style={styles.actionSmall}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
+
+function DashBoardCards(props) {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <TouchableOpacity>
-          <ImageBackground
-            blurRadius={1}
-            style={styles.one}
-            source={require("../../assets/todo.jpg")}
-          ></ImageBackground>
-        </TouchableOpacity>
+        <View style={styles.one}>
+          <Text style={styles.title}>85%</Text>
+          <Text style={styles.desc}>Profile</Text>
+          <Text style={styles.progress}>[***************---]</Text>
+          <ButtonOne iconName="puzzle" title="Complete now" />
+        </View>
 
-        <TouchableOpacity>
-          <ImageBackground
-            blurRadius={1}
-            style={styles.two}
-            source={require("../../assets/analyze.jpeg")}
-          ></ImageBackground>
-        </TouchableOpacity>
+        <View style={styles.two}>
+          <Text style={styles.titleTwo}>6</Text>
+          <Text style={styles.descTwo}>projects</Text>
+          <ButtonTwo iconName="eye" title="View all" />
+        </View>
       </View>
       <View style={styles.mid}>
-        <TouchableOpacity>
-          <ImageBackground
-            style={styles.three}
-            blurRadius={1}
-            source={require("../../assets/concert.jpeg")}
-          ></ImageBackground>
-        </TouchableOpacity>
+        <View style={styles.three}>
+          <Text style={styles.titleTwo}>12</Text>
+          <Text style={styles.descTwo}>Jobs Applied</Text>
+          <ButtonTwo iconName="eye" title="View all" />
+        </View>
 
-        <TouchableOpacity>
-          <ImageBackground
-            blurRadius={1}
-            style={styles.four}
-            source={require("../../assets/puzzles.jpeg")}
-          >
-            {/* <LinearGradient
-            colors={[colors.other, colors.medium]}
-            style={styles.four}
-          >
-            <Text style={styles.title}>Puzzle Application</Text>
-            <Text style={styles.descBig}>
-              take multiple form of puzzle to engage your brain.
-            </Text>
-          </LinearGradient> */}
-          </ImageBackground>
-        </TouchableOpacity>
+        <View style={styles.four}></View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  action: {
+    color: colors.white,
+    fontSize: 18,
+    marginLeft: 10,
+  },
+  actionSmall: {
+    color: colors.white,
+    fontSize: 14,
+    marginLeft: 5,
+  },
+  button: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    marginVertical: 5,
+    borderRadius: 10,
+  },
+  buttonSmall: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    marginHorizontal: 25,
+    borderRadius: 10,
+  },
   title: {
     marginTop: 10,
     opacity: 1,
     fontWeight: "bold",
-    fontSize: 23,
+    fontSize: 60,
     color: colors.white,
     textAlign: "center",
     letterSpacing: 1.45,
   },
-  desc: {
-    marginHorizontal: 5,
-    marginVertical: 40,
-    opacity: 1,
+  titleTwo: {
     fontWeight: "bold",
-    fontSize: 13,
-    color: colors.light,
-    textAlign: "center",
+    fontSize: 35,
+    color: colors.white,
     letterSpacing: 1.45,
-    textTransform: "lowercase",
   },
-  descBig: {
-    marginHorizontal: 5,
-    marginVertical: 85,
+  progress: {
+    fontWeight: "bold",
+    color: colors.white,
+    marginTop: 10,
+    textAlign: "center",
+  },
+  descTwo: {
     opacity: 1,
     fontWeight: "bold",
-    fontSize: 13,
-    color: colors.light,
+    fontSize: 17,
+    color: colors.lightGray,
+    letterSpacing: 1.45,
+    textTransform: "uppercase",
+  },
+  desc: {
+    opacity: 1,
+    fontWeight: "bold",
+    fontSize: 20,
+    color: colors.lightGray,
     textAlign: "center",
     letterSpacing: 1.45,
-    textTransform: "lowercase",
+    textTransform: "uppercase",
   },
   image: {
     width: 195,
@@ -117,12 +165,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   one: {
+    backgroundColor: colors.list,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
     opacity: 0.9,
     width: 195,
     height: 219,
-    borderRadius: 30,
+    borderRadius: 5,
     overflow: "hidden",
-    elevation: 5,
   },
   top: {
     flex: 1,
@@ -130,27 +180,39 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   two: {
+    backgroundColor: colors.list,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     opacity: 0.9,
     width: 195,
     height: 146,
-    borderRadius: 30,
+    borderRadius: 5,
     overflow: "hidden",
-    elevation: 5,
   },
   three: {
-    opacity: 0.9,
-    borderRadius: 30,
-    elevation: 5,
+    backgroundColor: colors.list,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 195,
     height: 146,
+    borderRadius: 5,
     overflow: "hidden",
     marginTop: 40,
-    width: 195,
-    zIndex: 1230,
   },
   four: {
+    backgroundColor: colors.list,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
     opacity: 0.9,
-    borderRadius: 30,
-    elevation: 5,
+    borderRadius: 5,
     height: 219,
     overflow: "hidden",
     width: 195,

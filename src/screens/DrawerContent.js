@@ -34,12 +34,12 @@ function DrawerContent(props) {
               <Feather
                 name="user"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Profile"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Profile")}
           />
@@ -48,12 +48,12 @@ function DrawerContent(props) {
               <AntDesign
                 name="dashboard"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Dashboard"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Home")}
           />
@@ -62,12 +62,12 @@ function DrawerContent(props) {
               <AntDesign
                 name="bulb1"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Pitch"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Pitch")}
           />
@@ -76,12 +76,12 @@ function DrawerContent(props) {
               <Ionicons
                 name="trending-up"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Trends"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Trends")}
           />
@@ -90,12 +90,12 @@ function DrawerContent(props) {
               <Feather
                 name="settings"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Settings"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Settings")}
           />
@@ -104,12 +104,12 @@ function DrawerContent(props) {
               <AntDesign
                 name="customerservice"
                 size={size}
-                color={focused ? "#7cc" : "#ccc"}
+                color={focused ? "#7cc" : colors.lightGray}
               />
             )}
             label="Support"
             labelStyle={{
-              color: "#ccc",
+              color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Support")}
           />
@@ -117,8 +117,11 @@ function DrawerContent(props) {
         <View style={styles.preference}>
           <Text style={styles.prefMode}>Dark Mode</Text>
           <Switch
-            trackColor={{ false: "#ccc", true: "#ccc" }}
-            thumbColor={isEnabled ? colors.primary : "#f4f3f4"}
+            trackColor={{
+              false: colors.lightGray,
+              true: colors.extralightGray,
+            }}
+            thumbColor={isEnabled ? colors.list : colors.white}
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
@@ -130,12 +133,12 @@ function DrawerContent(props) {
             <MaterialIcons
               name="logout"
               size={size}
-              color={focused ? "#7cc" : "#ccc"}
+              color={focused ? "#7cc" : colors.lightGray}
             />
           )}
           label="Sign Out"
           labelStyle={{
-            color: "#ccc",
+            color: colors.white,
           }}
           onPress={() => console.log("logged out")}
         />
@@ -160,13 +163,13 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: "#ccc",
+    color: colors.lightGray,
     marginBottom: 15,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: colors.light,
+    color: colors.white,
   },
   signout: {
     marginBottom: 20,
@@ -182,7 +185,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   prefMode: {
-    color: "#ccc",
+    color: colors.lightGray,
     marginTop: 5,
   },
 });

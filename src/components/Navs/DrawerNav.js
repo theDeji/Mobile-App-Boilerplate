@@ -21,12 +21,8 @@ const DrawerNav = () => {
       backBehavior="none"
       drawerContent={(props) => <DrawerContent {...props} />}
       drawerStyle={{
-        backgroundColor: colors.primary,
+        backgroundColor: colors.list,
         width: 280,
-      }}
-      drawerContentOptions={{
-        inactiveTintColor: "#ccc",
-        activeTintColor: "#7cc",
       }}
     >
       <Drawer.Screen
@@ -40,15 +36,15 @@ const DrawerNav = () => {
               <MaterialCommunityIcons
                 name="bell"
                 size={24}
-                color={colors.other}
+                color={colors.lightGray}
                 style={{ marginRight: 18 }}
               />
             </TouchableOpacity>
           ),
           headerStyle: {
-            backgroundColor: "whitesmoke",
+            backgroundColor: colors.list,
           },
-          headerTintColor: colors.other,
+          headerTintColor: colors.lightGray,
         }}
       />
       {/* <Drawer.Screen

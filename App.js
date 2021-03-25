@@ -29,7 +29,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    // <EditProfileScreen />
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         {/* <Stack.Screen name="Onboard" component={OnboardingScreen} />
