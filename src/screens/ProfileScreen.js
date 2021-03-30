@@ -60,24 +60,22 @@ function ProfileScreen(props) {
           iconName="calendar"
         />
       </View>
-      <View style={styles.modalContainer}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => setModalVisible(!modalVisible)}
-        >
-          <ScrollView style={styles.modalContainer}>
-            <AntDesign
-              name="closecircleo"
-              size={24}
-              color={colors.pink}
-              style={{ textAlign: "right" }}
-              onPress={() => setModalVisible(false)}
-            />
-          </ScrollView>
-        </Modal>
-      </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(!modalVisible)}
+      >
+        <ScrollView style={styles.modalContainer}>
+          <AntDesign
+            name="closecircleo"
+            size={24}
+            color={colors.pink}
+            style={{ textAlign: "right" }}
+            onPress={() => setModalVisible(false)}
+          />
+        </ScrollView>
+      </Modal>
     </View>
   );
 }
@@ -88,6 +86,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: colors.bg,
+    flex: 1,
   },
   modalContainer: {
     marginTop: 140,

@@ -7,10 +7,10 @@ import {
   Text,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
-
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ProgressBar from "../utils/ProgressBar";
 
 function ButtonOne({ title, iconName, onPress }) {
   return (
@@ -45,11 +45,11 @@ function ButtonTwo({ title, iconName, onPress }) {
 function DashBoardCards(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
+      <View style={styles.right}>
         <View style={styles.one}>
           <Text style={styles.title}>85%</Text>
           <Text style={styles.desc}>Profile</Text>
-          <Text style={styles.progress}>[***************---]</Text>
+          <ProgressBar completed={85} />
           <ButtonOne iconName="puzzle" title="Complete now" />
         </View>
 
@@ -59,14 +59,19 @@ function DashBoardCards(props) {
           <ButtonTwo iconName="eye" title="View all" />
         </View>
       </View>
-      <View style={styles.mid}>
+      <View style={styles.left}>
         <View style={styles.three}>
           <Text style={styles.titleTwo}>12</Text>
-          <Text style={styles.descTwo}>Jobs Applied</Text>
+          <Text style={styles.descTwo}>Jobs for You</Text>
           <ButtonTwo iconName="eye" title="View all" />
         </View>
 
-        <View style={styles.four}></View>
+        <View style={styles.four}>
+          <Text style={styles.title}>24</Text>
+          <Text style={styles.desc}>Saved Jobs</Text>
+          <ProgressBar completed={85} />
+          <ButtonOne iconName="eye" title="View all" />
+        </View>
       </View>
     </View>
   );
@@ -152,15 +157,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginLeft: 35,
   },
-  mid: {
+  left: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "column",
   },
   container: {
-    flexDirection: "column",
-    height: 372,
-    marginRight: 7,
+    flexDirection: "row",
+    alignContent: "space-between",
     marginLeft: 7,
     marginBottom: 15,
   },
@@ -170,14 +173,15 @@ const styles = StyleSheet.create({
     borderColor: colors.lightGray,
     opacity: 0.9,
     width: 195,
+    paddingHorizontal: 10,
     height: 219,
     borderRadius: 5,
     overflow: "hidden",
   },
-  top: {
+  right: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
   },
   two: {
     backgroundColor: colors.list,
@@ -192,6 +196,7 @@ const styles = StyleSheet.create({
     height: 146,
     borderRadius: 5,
     overflow: "hidden",
+    marginTop: 6,
   },
   three: {
     backgroundColor: colors.list,
@@ -205,7 +210,7 @@ const styles = StyleSheet.create({
     height: 146,
     borderRadius: 5,
     overflow: "hidden",
-    marginTop: 40,
+    marginBottom: 6,
   },
   four: {
     backgroundColor: colors.list,
@@ -213,10 +218,10 @@ const styles = StyleSheet.create({
     borderColor: colors.lightGray,
     opacity: 0.9,
     borderRadius: 5,
+    paddingHorizontal: 10,
     height: 219,
     overflow: "hidden",
     width: 195,
-    marginTop: -33,
   },
 });
 

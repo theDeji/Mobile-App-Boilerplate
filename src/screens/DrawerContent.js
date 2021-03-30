@@ -21,7 +21,7 @@ function DrawerContent(props) {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <View style={styles.userInfoSection}>
         <Image source={require("../assets/mosh.jpg")} style={styles.image} />
         <Text style={styles.title}>Daniel Seis</Text>
@@ -148,7 +148,10 @@ function DrawerContent(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    marginVertical: 50,
+  },
   image: {
     width: 100,
     height: 100,
@@ -159,7 +162,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 30,
   },
   subtitle: {
     fontSize: 14,
