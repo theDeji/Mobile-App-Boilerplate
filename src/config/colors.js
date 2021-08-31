@@ -3,7 +3,7 @@ export default {
   list: "#243447",
   extralightGray: "#e1e8ed",
   lightGray: "#aab8c2",
-  extraX2: "f5f8fa",
+  extraX2: "#f5f8fa",
   primary: "#655399",
   secondary: "#57B894",
   other: "#3F3D56",

@@ -1,50 +1,61 @@
-import React, { useEffect } from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, Text, ScrollView, FlatList } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 
+import { FETCH_NEW_STORIES } from "../actions/types";
+import { fetchStoryIds } from "../api";
+import Story from "../components/Story";
 import Screen from "../components/utils/Screen";
 import colors from "../config/colors";
-import DashBoardCards from "../components/utils/DashBoardCards";
-import SwipeActions from "../components/utils/SwipeActions";
-import ProfileCard from "../components/utils/ProfileCard";
 
-function HomeScreen({ navigation }) {
+function HomeScreen(props) {
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [temp, setTemp] = useState([]);
+  const [j, setJ] = useState(10);
+
+  const { newStories } = useSelector((state) => state.newStoriesReducers);
+
+  const dispatch = useDispatch();
+
+  function handleFetch() {
+    return fetchStoryIds()
+      .then((id) => {
+        dispatch({ type: FETCH_NEW_STORIES, payload: id });
+      })
+      .catch((e) => console.log(e));
+  }
+
+  useEffect(() => {
+    setTemp(newStories);
+  }, newStories);
+
+  useEffect(() => {
+    if (!newStories.length) {
+      handleFetch().then();
+    }
+  }, []);
+
+  function fetchMore() {
+    setJ(j + 10);
+  }
+
   return (
     <Screen style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <Text>Your Profile Summary</Text> */}
-        <ProfileCard navigation={navigation} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            marginLeft: 12,
-            marginBottom: 15,
-          }}
-        >
-          <MaterialIcons name="dashboard" size={20} color={colors.lightGray} />
-          <Text style={styles.text}>Dashboard Summary</Text>
-        </View>
-        <DashBoardCards />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            marginLeft: 12,
-            marginBottom: 15,
-          }}
-        >
-          <MaterialIcons name="work" size={20} color={colors.lightGray} />
-          <Text style={styles.text}>Available Jobs</Text>
-        </View>
-        <SwipeActions />
-      </ScrollView>
+      <FlatList
+        scrollEnabled={true}
+        vertical
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        data={temp.slice(0, j)}
+        keyExtractor={(_, i) => i.toString()}
+        renderItem={(renderData, index) => (
+          <Story key={index} _id={renderData.item} />
+        )}
+        onRefresh={() => handleFetch()}
+        refreshing={isRefreshing}
+        onEndReachedThreshold={0.1}
+        onEndReached={() => fetchMore()}
+      />
     </Screen>
   );
 }
@@ -52,6 +63,7 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     marginTop: 0,
+    // paddingTop: 10,
     backgroundColor: colors.bg,
   },
   text: {

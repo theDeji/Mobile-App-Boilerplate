@@ -1,12 +1,10 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { TransitionPresets } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
 import ProfileScreen from "../../screens/ProfileScreen";
-import BottomTabs from "./BottomTabs";
 import SupportScreen from "../../screens/SupportScreen";
 import DrawerContent from "../../screens/DrawerContent";
 import SettingsScreen from "../../screens/SettingsScreen";
@@ -30,7 +28,7 @@ const DrawerNav = () => {
         component={MainStackNav}
         options={{
           headerShown: true,
-          headerTitle: null,
+          headerTitle: "Hacker News",
           headerRight: ({}) => (
             <TouchableOpacity>
               <MaterialCommunityIcons

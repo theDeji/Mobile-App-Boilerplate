@@ -1,21 +1,17 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { useFormikContext } from 'formik'
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { useFormikContext } from "formik";
 
-import Button from '../utils/Buttons/Button'
+import Button from "../utils/Buttons/Button";
 
+function SubmitButton({ title, navigation }) {
+  const { handleSubmit } = useFormikContext();
 
-function SubmitButton({title, navigation}) {
-
-    const { handleSubmit } = useFormikContext();
-
-    return (
-        <Button title={title} onPress={() => navigation.navigate('Home')} />
-    );
+  return <Button title={title} onPress={() => handleSubmit()} />;
 }
 
 const styles = StyleSheet.create({
-    container:{}
-})
+  container: {},
+});
 
 export default SubmitButton;

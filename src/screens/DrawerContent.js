@@ -14,7 +14,6 @@ import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
-import { color } from "react-native-reanimated";
 
 function DrawerContent(props) {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -23,12 +22,40 @@ function DrawerContent(props) {
   return (
     <View style={styles.container}>
       <View style={styles.userInfoSection}>
-        <Image source={require("../assets/mosh.jpg")} style={styles.image} />
-        <Text style={styles.title}>Daniel Seis</Text>
+        <Image source={require("../assets/deji.jpg")} style={styles.image} />
+        <Text style={styles.title}>Adeniyi Emmanuel</Text>
         <Text style={styles.subtitle}>Software Engineer</Text>
       </View>
       <DrawerContentScrollView {...props} showsVerticalScrollIndicator={false}>
         <View style={styles.drawerSection}>
+          <DrawerItem
+            icon={({ color, size, focused }) => (
+              <AntDesign
+                name="bulb1"
+                size={size}
+                color={focused ? "#7cc" : colors.lightGray}
+              />
+            )}
+            label="New Stories"
+            labelStyle={{
+              color: colors.white,
+            }}
+            onPress={() => props.navigation.navigate("Home")}
+          />
+          <DrawerItem
+            icon={({ color, size, focused }) => (
+              <Ionicons
+                name="trending-up"
+                size={size}
+                color={focused ? "#7cc" : colors.lightGray}
+              />
+            )}
+            label="Top Stories"
+            labelStyle={{
+              color: colors.white,
+            }}
+            onPress={() => props.navigation.navigate("Trends")}
+          />
           <DrawerItem
             icon={({ color, size, focused }) => (
               <Feather
@@ -43,21 +70,8 @@ function DrawerContent(props) {
             }}
             onPress={() => props.navigation.navigate("Profile")}
           />
-          <DrawerItem
-            icon={({ color, size, focused }) => (
-              <AntDesign
-                name="dashboard"
-                size={size}
-                color={focused ? "#7cc" : colors.lightGray}
-              />
-            )}
-            label="Dashboard"
-            labelStyle={{
-              color: colors.white,
-            }}
-            onPress={() => props.navigation.navigate("Home")}
-          />
-          <DrawerItem
+
+          {/* <DrawerItem
             icon={({ color, size, focused }) => (
               <AntDesign
                 name="bulb1"
@@ -70,21 +84,8 @@ function DrawerContent(props) {
               color: colors.white,
             }}
             onPress={() => props.navigation.navigate("Pitch")}
-          />
-          <DrawerItem
-            icon={({ color, size, focused }) => (
-              <Ionicons
-                name="trending-up"
-                size={size}
-                color={focused ? "#7cc" : colors.lightGray}
-              />
-            )}
-            label="Trends"
-            labelStyle={{
-              color: colors.white,
-            }}
-            onPress={() => props.navigation.navigate("Trends")}
-          />
+          /> */}
+
           <DrawerItem
             icon={({ color, size, focused }) => (
               <Feather
@@ -97,7 +98,7 @@ function DrawerContent(props) {
             labelStyle={{
               color: colors.white,
             }}
-            onPress={() => props.navigation.navigate("Settings")}
+            // onPress={() => props.navigation.navigate("Settings")}
           />
           <DrawerItem
             icon={({ color, size, focused }) => (
@@ -111,7 +112,7 @@ function DrawerContent(props) {
             labelStyle={{
               color: colors.white,
             }}
-            onPress={() => props.navigation.navigate("Support")}
+            // onPress={() => props.navigation.navigate("Support")}
           />
         </View>
         <View style={styles.preference}>
@@ -140,7 +141,7 @@ function DrawerContent(props) {
           labelStyle={{
             color: colors.white,
           }}
-          onPress={() => console.log("logged out")}
+          onPress={() => props.navigation.navigate("Login")}
         />
       </View>
     </View>
@@ -162,11 +163,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 20,
   },
   subtitle: {
     fontSize: 14,
     color: colors.lightGray,
-    marginBottom: 15,
+    marginTop: 10,
   },
   title: {
     fontSize: 18,
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
   },
   drawerSection: {
     flex: 1,
-    marginBottom: 10,
+    marginVertical: 30,
   },
   preference: {
     flexDirection: "row",
